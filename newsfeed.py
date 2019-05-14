@@ -13,6 +13,7 @@ from tweepy.streaming import StreamListener
 newsfeed = Blueprint('newsfeed', __name__)
 
 @newsfeed.route('/newsfeed')
+@login_required
 def tweets():
 
     OAUTH_TOKEN = config.CODE_CONFIG['OAUTH_TOKEN']

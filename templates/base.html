@@ -8,7 +8,7 @@
     {% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Flask Auth Example</title>
+    <title>DevelopeME</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -105,6 +105,9 @@ $(document).ready(function() {
                             </a>
                             <a href="{{ url_for('main.giphy') }}" class="navbar-item">
                                 Gifs
+                            </a>
+                            <a href="{{ url_for('main.questions') }}" class="navbar-item">
+                                Questions
                             </a>
                             {% endif %}
                             {% if not current_user.is_authenticated %}
