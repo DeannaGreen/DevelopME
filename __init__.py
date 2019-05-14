@@ -31,4 +31,7 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from .newsfeed import newsfeed as newsfeed_blueprint
+    app.register_blueprint(newsfeed_blueprint)
+
     return app
