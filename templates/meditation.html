@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block tag %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple Pomo Timer">
+  <link rel="stylesheet" type="text/css" href="./static/timer.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="timer">
+      <div class="clock"><span contenteditable="true" id="min">10</span><span>:</span><span contenteditable="true" id="sec">10</span>
+        <div class="indicators">Min&nbsp;&nbsp;:&nbsp;&nbsp;Sec</div>
+      </div>
+
+    </div>
+    <div class="controls">
+      <div class='stBtn'>Start</div>
+      <div class='refresh'>Reset</div>
+    </div>
+    <div class="footer" align="center">Click on the numbers of the timer to edit</div>
+  </div>
+  <audio id="ado" src="./static/serious-strike.mp3"
+    controls="true"></audio>
+  {% endblock %}
