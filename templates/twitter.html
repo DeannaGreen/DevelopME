@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block tag %}
+<meta http-equiv="refresh" content="60"/>
+{% endblock %}
+
+{% block content %}
+<h1 class="title">
+  Newsfeed
+</h1>
+<h2 class="subtitle">
+  Tweets about #coding
+</h2>
+<!-- <p>{{statuses}}</p> -->
+
+<div class='sk-ww-twitter-hashtag-feed' data-embed-id='23874'></div><script src='https://www.sociablekit.com/app/embed/twitter-hashtag-feed/widget.js'></script>
+
+
+{% endblock %}
