@@ -53,7 +53,7 @@ def tweets():
         search_results = twitter_api.search.tweets(**kwargs)
         statuses += search_results['statuses']
 
-    print(statuses)
+    # print(statuses)
 
     status_texts = [ status['text']
                      for status in statuses ]
