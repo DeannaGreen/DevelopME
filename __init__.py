@@ -31,4 +31,7 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from.meditation import meditation as meditation_blueprint
+    app.register_blueprint(meditation_blueprint)
+
     return app
