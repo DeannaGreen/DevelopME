@@ -53,7 +53,7 @@ def tweets():
         search_results = twitter_api.search.tweets(**kwargs)
         statuses += search_results['statuses']
 
-    print(statuses)
+    # print(statuses)
 
     status_texts = [ status['text']
                      for status in statuses ]
@@ -74,7 +74,7 @@ def tweets():
 
     # Explore the first 5 items for each...
 
-    print(json.dumps(status_texts[0:20], indent=1))
+    # print(json.dumps(status_texts[0:20], indent=1))
     # print(json.dumps(screen_names[0:5], indent=1))
     # print(json.dumps(hashtags[0:5], indent=1))
     # print(json.dumps(words[0:5], indent=1))
