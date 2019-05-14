@@ -37,6 +37,7 @@ def tweets():
 
     statuses = search_results['statuses']
 
+    # print(statuses)
 
     # Iterate through 5 more batches of results by following the cursor
 
@@ -69,6 +70,7 @@ def tweets():
     words = [ w
               for t in status_texts
                   for w in t.split() ]
+
 
     # Explore the first 5 items for each...
 
