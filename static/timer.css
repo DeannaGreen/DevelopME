@@ -64,6 +64,20 @@ span {
   cursor: pointer;
 }
 
+.guidBtn {
+  text-align: center;
+  font-size: 2em;
+  width: 150px;
+  height: 70px;
+  line-height: 70px;
+  background-color: aquamarine;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
 .controls {
   display: flex;
   justify-content: center;
@@ -74,6 +88,10 @@ span {
 }
 
 #ado {
+  display: none;
+}
+
+#adu {
   display: none;
 }
 
