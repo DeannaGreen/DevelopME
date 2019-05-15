@@ -88,50 +88,62 @@ $(document).ready(function() {
     <section class="hero is-fullheight">
 
         <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a href="{{ url_for('main.index') }}" class="navbar-item">
-                                Home
-                            </a>
-                            {% if current_user.is_authenticated %}
-                            <a href="{{ url_for('main.profile') }}" class="navbar-item">
-                                Profile
-                            </a>
-                            <a href="{{ url_for('newsfeed.tweets') }}" class="navbar-item">
-                                Newsfeed
-                            </a>
-                            <a href="{{ url_for('meditation.timer') }}" class="navbar-item">
-                                Meditation
-                            </a>
-                            <a href="{{ url_for('main.giphy') }}" class="navbar-item">
-                                Gifs
-                            </a>
-                            <a href="{{ url_for('main.questions') }}" class="navbar-item">
-                                Questions
-                            </a>
-                            {% endif %}
-                            {% if not current_user.is_authenticated %}
-                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                Login
-                            </a>
-                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                Sign Up
-                            </a>
-                            {% endif %}
-                            {% if current_user.is_authenticated %}
-                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                Logout
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
+          <nav class="navbar">
+              <div class="container">
+                  <div class="navbar-brand">
+                      <a href="{{ url_for('main.index') }}" class="navbar-item">
+                          DevelopeME
+                      </a>
+                      <span class="navbar-burger burger" data-target="navbarMenu">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </span>
+                  </div>
+                  <div id="navbarMenu" class="navbar-menu">
+                      <div class="navbar-end">
+                          <div class="tabs is-right">
+                              <ul>
+                                  {% if current_user.is_authenticated %}
+                                  <li class="{{ 'is-active' if active_page == "index" else '' }}">
+                                    <a href="{{ url_for('main.index') }}" class="navbar-item">Home</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "profile" else '' }}">
+                                    <a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "newsfeed" else '' }}">
+                                    <a href="{{ url_for('newsfeed.tweets') }}" class="navbar-item">Newsfeed</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "meditation" else '' }}">
+                                    <a href="{{ url_for('meditation.timer') }}" class="navbar-item">Meditation</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "gifs" else '' }}">
+                                    <a href="{{ url_for('main.giphy') }}" class="navbar-item">Gifs</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "questions" else '' }}">
+                                    <a href="{{ url_for('main.questions') }}" class="navbar-item">Questions</a>
+                                  </li>
+                                  {% endif %}
+                                  {% if not current_user.is_authenticated %}
+                                  <li class="{{ 'is-active' if active_page == "login" else '' }}">
+                                    <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "signup" else '' }}">
+                                    <a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a>
+                                  </li>
+                                  {% endif %}
+                                  {% if current_user.is_authenticated %}
+                                  <li class="{{ 'is-active' if active_page == "logout" else '' }}">
+                                    <a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a>
+                                  </li>
+                                  {% endif %}
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </nav>
         </div>
-
         <div class="hero-body">
             <div class="container has-text-centered">
                {% block content %}
