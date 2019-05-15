@@ -5,3 +5,4 @@ tweepy
 twitter
 flask_sqlalchemy
 gunicorn
+python-dotenv
