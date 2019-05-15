@@ -7,6 +7,7 @@ import random
 main = Blueprint('main', __name__)
 
 @main.route('/')
+@login_required
 def index():
     return render_template('index.html')
 
@@ -26,7 +27,7 @@ def questions():
     questions = [
     'Did you have a productive day yesterday?',
     'What is on your mind?',
-    'What is the challenge for you today?',
+    'What challenge are you working on today?',
     'Can I help you in any way?',
     'Would you like to pair program?',
     'Did you achieve everything you wanted to yesterday?',
@@ -52,7 +53,7 @@ def questions():
     'If you could have lunch with one person dead or alive, who would it be?',
     'If you could only eat one food for the rest of your life what would it be?',
     'What makes you laugh the most?',
-    'Apart fro the necessities, what is one thing you could not live without?',
+    'Apart from the necessities, what is one thing you could not live without?',
     'If you had to describe yourself in five words, what would they be?',
     'What goals do you have for the next five years?',
     'What is the first thing you would do if you won the lottery?',

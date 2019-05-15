@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set active_page = "gifs" %}
 
 {% block tag %}
 <meta charset="UTF-8">
@@ -37,7 +38,7 @@
 <script>
   (function () {
     function giphySearch(keyword) {
-      return fetch(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key={{ GIPHY_KEY }}&limit=50`)
+      return fetch(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key={{ GIPHY_KEY }}&limit=30`)
         .then(response => response.json());
     }
 
