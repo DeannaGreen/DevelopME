@@ -43,7 +43,8 @@ span {
   width: 150px;
   height: 70px;
   line-height: 70px;
-  background-color: aquamarine;
+  background-color: #343a40;
+  color: white;
   margin-top: 2em;
   margin-bottom: 0.5em;
   margin-right: 0.5em;
@@ -57,9 +58,11 @@ span {
   width: 150px;
   height: 70px;
   line-height: 70px;
-  background-color: aquamarine;
+  background-color: #343a40;
+  color: white;
   margin-top: 2em;
   margin-bottom: 0.5em;
+  margin-right: 0.5em;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -70,7 +73,8 @@ span {
   width: 150px;
   height: 70px;
   line-height: 70px;
-  background-color: aquamarine;
+  background-color: #343a40;
+  color: white;
   margin-top: 2em;
   margin-bottom: 0.5em;
   margin-right: 0.5em;
