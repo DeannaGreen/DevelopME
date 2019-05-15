@@ -1,2 +1,2 @@
-web: python developme/__init__.py
+web:gunicorn flask run
 heroku ps:scale web=1
