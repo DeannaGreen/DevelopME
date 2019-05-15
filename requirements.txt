@@ -4,3 +4,4 @@ requests
 tweepy
 twitter
 flask_sqlalchemy
+gunicorn
