@@ -23,22 +23,28 @@ def giphy():
 @main.route('/questions')
 @login_required
 def questions():
-    questions = [
+    tech_questions = [
     'Did you have a productive day yesterday?',
-    'What is on your mind?',
-    'What challenge are you working on today?',
     'Can I help you in any way?',
     'Would you like to pair program?',
     'Did you achieve everything you wanted to yesterday?',
     'What do you want to achieve today?',
     'Any wins to celebrate this week?',
     'What challenges are you facing? Where are you stuck?',
-    'How are you feeling?',
     'What is the best thing that happened to you this week, either at work or outside of it?',
     'What were some great contributions made by other team members?',
     'Could you give me some constructive feedback?',
     'Do you prefer written or verbal communication?',
     'Which one do you prefer and why: teamwork or working alone?',
+    'What is something you could teach me about?',
+    'What are some of your long term goals?',
+    'What goals do you have for the next five years?',
+    ]
+    questions = [
+    'What is on your mind?',
+    'What challenge are you working on today?',
+    'Can I help you in any way?',
+    'How are you feeling?',
     'If your life was a book, what would it be called?',
     'Do you like to cook?',
     'Where do you like to go when you eat out?',
@@ -58,6 +64,6 @@ def questions():
     'What is the first thing you would do if you won the lottery?',
     'Where did you last go on holiday?'
     ]
-    q = random.choice(questions)
+    mergedlist = questions + tech_questions
 
-    return render_template('questions.html', q=q)
+    return render_template('questions.html', q=random.choice(questions), tech_q=random.choice(tech_questions), random=random.choice(mergedlist))

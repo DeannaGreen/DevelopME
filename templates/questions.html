@@ -6,7 +6,30 @@
 Question To Ask Your Colleagues Today
 </h1>
 <br>
-<h2 class="subtitle">
-  {{ q }}
-</h2>
+<div class="content_kneeboard">
+  <h2 class="subtitle">
+    Generate question with buttons below
+  </h2>
+</div>
+<br>
+<button id="general" type="button" class="btn btn-dark">General</button>
+<button id="tech" type="button" class="btn btn-dark">Technical</button>
+<button id="random" type="button" class="btn btn-dark">Random</button>
+
+<script>
+$("#general").click(function() {
+  $(".content_kneeboard").empty();
+  $(".content_kneeboard").html('<h2 class="subtitle">{{ q }}</h2>');
+});
+
+$("#tech").click(function() {
+  $(".content_kneeboard").empty();
+  $(".content_kneeboard").html('<h2 class="subtitle">{{ tech_q }}</h2>');
+});
+
+$("#random").click(function() {
+  $(".content_kneeboard").empty();
+  $(".content_kneeboard").html('<h2 class="subtitle">{{ random }}</h2>');
+});
+</script>
 {% endblock %}
