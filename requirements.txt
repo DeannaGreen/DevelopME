@@ -3,4 +3,3 @@ flask_login
 requests
 tweepy
 twitter
-sqlite3
