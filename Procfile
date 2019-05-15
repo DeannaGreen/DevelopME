@@ -1,1 +1,1 @@
-web: gunicorn __init__:application
+web: gunicorn "developme:create_app()""
