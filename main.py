@@ -26,7 +26,7 @@ def questions():
     questions = [
     'Did you have a productive day yesterday?',
     'What is on your mind?',
-    'What is the challenge for you today?',
+    'What challenge are you working on today?',
     'Can I help you in any way?',
     'Would you like to pair program?',
     'Did you achieve everything you wanted to yesterday?',
