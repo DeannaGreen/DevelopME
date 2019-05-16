@@ -6,3 +6,4 @@ twitter
 flask_sqlalchemy
 gunicorn
 python-dotenv
+psycopg2
