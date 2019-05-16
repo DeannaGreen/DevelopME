@@ -32,12 +32,6 @@ def list():
             data = df.json()
             event_list = data["events"]
 
-    # for event in data["events"]:
-    #     print("-----------")
-    #     print(event["name"])
-    #     print(event["local_date"])
-    #     print(event["local_time"])
-
     return render_template('events.html', event_list=event_list, city=city_name)
 
 @events.route('/meetup', methods=['POST'])
