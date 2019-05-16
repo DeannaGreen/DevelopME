@@ -15,12 +15,6 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
-# @main.route('/profile')
-# @login_required
-# def profile():
-#     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-#     return render_template('profile.html', name=current_user.name, image_file=image_file)
-
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
