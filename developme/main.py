@@ -7,6 +7,7 @@ from developme.forms import UpdateAccountForm
 from flask import request
 import secrets
 import os
+from PIL import Image
 
 main = Blueprint('main', __name__)
 
@@ -24,13 +25,13 @@ def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join('/Users/deanna@paddle.com/Documents/developme/developme/', 'static/profile_pics', picture_fn)
-    print("hello")
+    picture_path = os.path.join('/Users/deanna@paddle.com/Documents/developme/developme/static/profile_pics/', picture_fn)
+    print("picture")
 
-    # output_size = (125, 125)
-    # i = Image.open(form_picture)
-    # i.thumbnail(output_size)
-    # i.save(picture_path)
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
 
     return picture_fn
 
