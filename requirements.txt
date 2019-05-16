@@ -7,3 +7,6 @@ flask_sqlalchemy
 gunicorn
 python-dotenv
 psycopg2
+dialogflow==0.4.0
+python-dotenv==0.8.2
+pusher==2.0.1

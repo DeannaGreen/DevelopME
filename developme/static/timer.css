@@ -3,8 +3,16 @@
   padding: 0;
 }
 
+.bs-example {
+  margin-left: 1040px;
+  margin-top: 0px;
+  text-align: left;
+}
+
 body {
   font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 .footer {
   padding-bottom: 2em;
