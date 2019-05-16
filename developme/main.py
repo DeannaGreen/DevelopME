@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for
 from flask_login import login_required, current_user
 from developme import db
 from developme import config
@@ -13,7 +13,14 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('profile.html', name=current_user.name, image_file=image_file)
+
+@main.route('/update', methods=['POST'])
+def profile_post():
+    email = request.form.get('email')
+    user = User.query.filter_by(email=email).first()
+    return redirect(url_for('main.profile'))
 
 @main.route('/gif')
 @login_required
