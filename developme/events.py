@@ -9,6 +9,7 @@ import json
 events = Blueprint('events', __name__)
 
 @events.route('/meetup')
+@login_required
 def list():
     try:
         location = request.args.get('location')
@@ -41,6 +42,7 @@ def list():
     return render_template('events.html', event_list=event_list, city=city_name)
 
 @events.route('/meetup', methods=['POST'])
+@login_required
 def list_post():
     city = request.form.get('city')
     return redirect(url_for('events.list', location=city))

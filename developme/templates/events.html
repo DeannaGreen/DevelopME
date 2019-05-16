@@ -1,21 +1,8 @@
 {% extends "base.html" %}
-
-{% block tag %}
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script>
-<script type="text/javascript">
-   function initialize() {
-      var input = document.getElementById('searchTextField');
-      var options = {
-        types: ['geocode'] //this should work !
-      };
-      var autocomplete = new google.maps.places.Autocomplete(input, options);
-   }
-   google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-{% endblock %}
+{% set active_page = "events" %}
 
 {% block content %}
-<h1>Eventos</h1>
+<h1>Events</h1>
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <div class="notification is-danger">
@@ -26,7 +13,7 @@
 <form method="POST" action="/meetup">
     <div class="field">
         <div class="control">
-            <input id="searchTextField" class="input is-large" type="text" name="city" placeholder="Enter city name, ex: London, gb" autofocus="" value="{{ city }}" size="10" autocomplete="on">
+            <input  class="input is-large" type="text" name="city" placeholder="Enter city name, ex: London, gb" autofocus="" value="{{ city }}">
         </div>
     </div>
 
