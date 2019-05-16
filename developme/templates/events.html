@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block tag %}
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script>
+<script type="text/javascript">
+   function initialize() {
+      var input = document.getElementById('searchTextField');
+      var options = {
+        types: ['geocode'] //this should work !
+      };
+      var autocomplete = new google.maps.places.Autocomplete(input, options);
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>Eventos</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="notification is-danger">
+        {{ messages[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+<form method="POST" action="/meetup">
+    <div class="field">
+        <div class="control">
+            <input id="searchTextField" class="input is-large" type="text" name="city" placeholder="Enter city name, ex: London, gb" autofocus="" value="{{ city }}" size="10" autocomplete="on">
+        </div>
+    </div>
+
+    <button class="button is-info is-large">Search Events</button>
+</form>
+
+<div class="row">
+  <h2 style="text-align:center">
+  {{ city }}
+</h2>
+{% for event in event_list %}
+
+<div class="col-sm-6">
+  <div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ event["name"] }}</h5>
+      <p class="card-text">{{ event["local_date"] }} at {{ event["local_time"] }}</p>
+      <a href="{{ event["link"] }}"" class="btn btn-primary">To this event</a>
+    </div>
+  </div>
+</div>
+{%endfor%}
+</div>
+
+{% endblock %}

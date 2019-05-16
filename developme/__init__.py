@@ -38,4 +38,7 @@ def create_app():
     from .meditation import meditation as meditation_blueprint
     app.register_blueprint(meditation_blueprint)
 
+    from .events import events as events_blueprint
+    app.register_blueprint(events_blueprint)
+
     return app
