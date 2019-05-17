@@ -4,9 +4,11 @@ from flask_login import LoginManager
 
 
 # init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
 def create_app():
+    db = SQLAlchemy()
+    
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
