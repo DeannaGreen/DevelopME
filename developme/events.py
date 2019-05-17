@@ -11,7 +11,9 @@ events = Blueprint('events', __name__)
 
 @events.route('/meetup')
 @login_required
+
 def list():
+    meetup = os.environ.get('MEETUP_KEY', None)
     try:
         location = request.args.get('location')
     except NameError:
@@ -21,8 +23,8 @@ def list():
         event_list = []
         city_name = ""
     else:
-        client = meetup.api.Client(os.environ.get('MEETUP_KEY', None))
-        city_data = requests.get("https://api.meetup.com/find/locations?&sign=true&photo-host=public&query="+location+"&key="+config.CODE_CONFIG['MEETUP_KEY'])
+        client = meetup.api.Client(meetup)
+        city_data = requests.get("https://api.meetup.com/find/locations?&sign=true&photo-host=public&query="+location+"&key="+meetup)
         if len(city_data.json()) is 0:
             flash('Cant find that city')
             event_list = []
@@ -30,7 +32,7 @@ def list():
         else:
             city = city_data.json()[0]
             city_name = city["name_string"]
-            df = requests.get("https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public&lon="+str(city["lon"])+"&topic_category=34&page=20&radius=50&lat="+str(city["lat"])+"&order=best&key="+config.CODE_CONFIG['MEETUP_KEY'])
+            df = requests.get("https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public&lon="+str(city["lon"])+"&topic_category=34&page=20&radius=50&lat="+str(city["lat"])+"&order=best&key="+meetup)
             data = df.json()
             event_list = data["events"]
 
