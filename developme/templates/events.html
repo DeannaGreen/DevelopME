@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set active_page = "events" %}
+
+{% block content %}
+<h1>Events</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="notification is-danger">
+        {{ messages[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+<form method="POST" action="/meetup">
+    <div class="input-group mb-3">
+        <input  class="form-control form-control-lg" type="text" name="city" placeholder="Enter city name, ex: London, gb" autofocus="" value="{{ city }}">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary btn-lg">Search</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+  <h2 style="text-align:center">
+  {{ city }}
+</h2>
+{% for event in event_list %}
+<div class="col-sm-6">
+  <div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ event["name"] }}</h5>
+      <p class="card-text">{{ event["local_date"] }} at {{ event["local_time"] }}</p>
+      <a href="{{ event["link"] }}"" class="btn btn-dark">To this event</a>
+    </div>
+  </div>
+</div>
+{%endfor%}
+</div>
+{% endblock %}

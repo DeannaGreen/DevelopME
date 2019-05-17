@@ -1,8 +1,13 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for, flash, redirect
 from flask_login import login_required, current_user
 from developme import db
 from developme import config
 import random
+from developme.forms import UpdateAccountForm
+from flask import request
+import secrets
+import os
+from PIL import Image
 
 main = Blueprint('main', __name__)
 
@@ -10,10 +15,39 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
-@main.route('/profile')
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(os.getcwd(), 'developme/static/profile_pics', picture_fn)
+    print("picture")
+
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
+@main.route("/profile", methods=['GET', 'POST'])
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
+        current_user.name = form.name.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your account has been updated!', 'success')
+        return redirect(url_for('main.profile'))
+    elif request.method == 'GET':
+        form.name.data = current_user.name
+        form.email.data = current_user.email
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('profile.html', title='Profile',
+                           image_file=image_file, form=form)
 
 @main.route('/gif')
 @login_required

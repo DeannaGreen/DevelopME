@@ -10,11 +10,21 @@
   Newsfeed
 </h1>
 <h2 class="subtitle">
-  Tweets about #coding
+  Tweets about #technology
 </h2>
 <!-- <p>{{statuses}}</p> -->
 
-<div class='sk-ww-twitter-hashtag-feed' data-embed-id='23874'></div><script src='https://www.sociablekit.com/app/embed/twitter-hashtag-feed/widget.js'></script>
+<div id="flockler_container"></div>
+<script type="text/javascript">
+var _flockler = _flockler || [];
+_flockler.push({
+  count: 20,
+  refresh: 0,
+  site: 7667,
+  style: 'wall_v1'
+});
+(function(d){var f = d.createElement('script');f.async=1;f.src='https://embed-cdn.flockler.com/embed-v2.js';s=d.getElementsByTagName('script')[0];s.parentNode.insertBefore(f,s);})(document);
+</script>
 
 
 {% endblock %}

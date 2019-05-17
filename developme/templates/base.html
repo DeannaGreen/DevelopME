@@ -8,10 +8,14 @@
     {% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DevelopeME</title>
+    <link rel="shortcut icon" type="image/png" href="./static/developme.png"/>
+    <title>DevelopME</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <script>
 (function() {
@@ -163,10 +167,8 @@ $(document).ready(function() {
         <div class="hero-head">
           <nav class="navbar">
               <div class="container">
+                  <img src="./static/developme.png" height="50" width="50">
                   <div class="navbar-brand">
-                      <a href="{{ url_for('main.index') }}" class="navbar-item">
-                          DevelopeME
-                      </a>
                       <span class="navbar-burger burger" data-target="navbarMenu">
                           <span></span>
                           <span></span>
@@ -192,6 +194,9 @@ $(document).ready(function() {
                                   </li>
                                   <li class="{{ 'is-active' if active_page == "gifs" else '' }}">
                                     <a href="{{ url_for('main.giphy') }}" class="navbar-item">Gifs</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "events" else '' }}">
+                                    <a href="{{ url_for('events.list') }}" class="navbar-item">Events</a>
                                   </li>
                                   <li class="{{ 'is-active' if active_page == "questions" else '' }}">
                                     <a href="{{ url_for('main.questions') }}" class="navbar-item">Questions</a>
