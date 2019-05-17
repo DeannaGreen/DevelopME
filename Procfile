@@ -1,1 +1,1 @@
-web:gunicorn developme.wsgi:app
+web:gunicorn developme.wsgi --log-file -
