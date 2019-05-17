@@ -3,7 +3,7 @@ import json
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from . import db
-from . import config
+import os
 
 from tweepy import Stream
 from tweepy import OAuthHandler
@@ -16,10 +16,10 @@ newsfeed = Blueprint('newsfeed', __name__)
 @login_required
 def tweets():
 
-    OAUTH_TOKEN = config.CODE_CONFIG['OAUTH_TOKEN']
-    OAUTH_TOKEN_SECRET = config.CODE_CONFIG['OAUTH_TOKEN_SECRET']
-    CONSUMER_KEY = config.CODE_CONFIG['CONSUMER_KEY']
-    CONSUMER_SECRET = config.CODE_CONFIG['CONSUMER_SECRET']
+    OAUTH_TOKEN = os.environ.get('OAUTH_TOKEN', None)
+    OAUTH_TOKEN_SECRET = os.environ.get('OAUTH_TOKEN_SECRET', None)
+    CONSUMER_KEY = os.environ.get('CONSUMER_KEY', None)
+    CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET', None)
 
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
                                CONSUMER_KEY, CONSUMER_SECRET)

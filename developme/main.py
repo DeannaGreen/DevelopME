@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, url_for, flash, redirect
 from flask_login import login_required, current_user
 from developme import db
-from developme import config
 import random
 from developme.forms import UpdateAccountForm
 from flask import request
@@ -52,7 +51,7 @@ def profile():
 @main.route('/gif')
 @login_required
 def giphy():
-    return render_template('gif.html', GIPHY_KEY=config.CODE_CONFIG['GIPHY_KEY'])
+    return render_template('gif.html', GIPHY_KEY=os.environ.get('GIPHY_KEY', None))
 
 @main.route('/questions')
 @login_required

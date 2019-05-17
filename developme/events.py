@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_required, current_user
 from developme import db
-# from developme import config
 import meetup.api
 import requests
 import json
