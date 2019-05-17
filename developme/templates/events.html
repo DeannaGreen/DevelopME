@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <button class="button is-info is-large">Search Events</button>
+    <button class="button btn btn-outline-secondary is-large">Search Events</button>
 </form>
 
 <div class="row">
@@ -25,13 +25,12 @@
   {{ city }}
 </h2>
 {% for event in event_list %}
-
 <div class="col-sm-6">
   <div class="card" style="width: 25rem;">
     <div class="card-body">
       <h5 class="card-title">{{ event["name"] }}</h5>
       <p class="card-text">{{ event["local_date"] }} at {{ event["local_time"] }}</p>
-      <a href="{{ event["link"] }}"" class="btn btn-primary">To this event</a>
+      <a href="{{ event["link"] }}"" class="btn btn-dark">To this event</a>
     </div>
   </div>
 </div>
