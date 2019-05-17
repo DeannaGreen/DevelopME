@@ -4,15 +4,15 @@ from flask_login import LoginManager
 
 
 # init SQLAlchemy so we can use it later in our models
-# db = SQLAlchemy()
+db = SQLAlchemy()
 
 def create_app():
-    db = SQLAlchemy()
-    
+    # db = SQLAlchemy()
+
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jwbgvryxvrhafz:6c40795f3c139216046e7fb7a3c53a1184fdf196a1c17c55f4cbb4f2962600d4@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/demomg60lcd16a'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
     db.init_app(app)
 
