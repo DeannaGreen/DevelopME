@@ -37,3 +37,6 @@ Visit localhost:5000
 - **Gifs:** Take your mind out from the developing world by exploring some quality gifs
 - **Events:** Keep up to date with all the latest coding events 
 - **Questions:** Develop your communcation skills and improve team work by interacting with your peers
+
+## Team DMT
+[Deanna](https://github.com/DeannaGreen), [Akua](https://github.com/AkuaAA) and [Jose](https://github.com/Saicam)
