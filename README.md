@@ -3,7 +3,7 @@ DevelopMe is a web application created by developers for developers. It encourag
   
   DevelopMe is hosted on Heroku, you can check it out [here.](https://testdevelopme2.herokuapp.com/)
   
-  ![Images are easy]()
+  ![Images are easy](https://github.com/DeannaGreen/DevelopME/blob/master/Screenshot%202019-05-20%20at%2010.50.00.png)
   
 ## Technology stack
 - Python3.7
