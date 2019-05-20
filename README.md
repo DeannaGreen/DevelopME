@@ -23,6 +23,20 @@ Install the necessary dependencies:
 ```shell
 pip install -r requirements.txt
 ```
+Export API Keys:
+
+**Twitter Environment Keys**
+- OAUTH_TOKEN
+- OAUTH_TOKEN_SECRET
+- CONSUMER_SECRET
+- CONSUMER_KEY
+
+**Meetup Environment Keys**
+- MEETUP_KEY
+
+**Giphy Environment Keys**
+- GIPHY_KEY
+
 Run the aplication:
 ```shell
 flask run
