@@ -39,4 +39,4 @@ Visit localhost:5000
 - **Questions:** Develop your communcation skills and improve team work by interacting with your peers
 
 ## Team DMT
-[Deanne](https://github.com/DeannaGreen),[Akua](https://github.com/AkuaAA) and [Jose](https://github.com/Saicam)
+[Deanna](https://github.com/DeannaGreen), [Akua](https://github.com/AkuaAA) and [Jose](https://github.com/Saicam)
