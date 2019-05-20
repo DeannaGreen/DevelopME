@@ -16,10 +16,15 @@ newsfeed = Blueprint('newsfeed', __name__)
 @login_required
 def tweets():
 
-    OAUTH_TOKEN = os.environ.get('OAUTH_TOKEN', None)
-    OAUTH_TOKEN_SECRET = os.environ.get('OAUTH_TOKEN_SECRET', None)
-    CONSUMER_KEY = os.environ.get('CONSUMER_KEY', None)
-    CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET', None)
+    # OAUTH_TOKEN = os.environ.get('OAUTH_TOKEN', None)
+    # OAUTH_TOKEN_SECRET = os.environ.get('OAUTH_TOKEN_SECRET', None)
+    # CONSUMER_KEY = os.environ.get('CONSUMER_KEY', None)
+    # CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET', None)
+
+    OAUTH_TOKEN='997779978-r542hm7EbxICcvZiSydwbqLfUj5SAwzTm70UjKqx'
+    OAUTH_TOKEN_SECRET='v2ESQnOdLOndvh2bizZvVl9iaDp7oOz6kSYrgdjF7IIAx'
+    CONSUMER_KEY='fL3xczernPD5heWfqvieb8cPK'
+    CONSUMER_SECRET='Y8ctl29Lm5byRVPABOJE22gsfbSxbIAf6XANWfMKkkg1Zl0Yzw'
 
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
                                CONSUMER_KEY, CONSUMER_SECRET)
@@ -72,7 +77,7 @@ def tweets():
               for t in status_texts
                   for w in t.split() ]
 
-
+    # print(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     # Explore the first 5 items for each...
 
     # print(json.dumps(status_texts[0:20], indent=1))
