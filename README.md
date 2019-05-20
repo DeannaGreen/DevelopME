@@ -33,7 +33,7 @@ Visit localhost:5000
 - **Login:** To access your profile
 - **Profile:** View and edit your personal information
 - **Newsfeed:** Keep up to date with the industry
-- **Meditation:** relax and unwind with the meditation timer. Guided meditation available
+- **Meditation:** Relax and unwind with the meditation timer. Guided meditation available
 - **Gifs:** Take your mind out from the developing world by exploring some quality gifs
 - **Events:** Keep up to date with all the latest coding events 
 - **Questions:** Develop your communcation skills and improve team work by interacting with your peers
