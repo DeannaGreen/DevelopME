@@ -21,11 +21,6 @@ def tweets():
     CONSUMER_KEY = os.environ.get('CONSUMER_KEY', None)
     CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET', None)
 
-    # OAUTH_TOKEN='997779978-r542hm7EbxICcvZiSydwbqLfUj5SAwzTm70UjKqx'
-    # OAUTH_TOKEN_SECRET='v2ESQnOdLOndvh2bizZvVl9iaDp7oOz6kSYrgdjF7IIAx'
-    # CONSUMER_KEY='fL3xczernPD5heWfqvieb8cPK'
-    # CONSUMER_SECRET='Y8ctl29Lm5byRVPABOJE22gsfbSxbIAf6XANWfMKkkg1Zl0Yzw'
-
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
                                CONSUMER_KEY, CONSUMER_SECRET)
 
