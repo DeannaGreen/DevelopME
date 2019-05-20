@@ -38,3 +38,5 @@ Visit localhost:5000
 - **Events:** Keep up to date with all the latest coding events 
 - **Questions:** Develop your communcation skills and improve team work by interacting with your peers
 
+## Team DTM
+[Deanne](https://github.com/DeannaGreen),[Akua](https://github.com/AkuaAA) and [Jose](https://github.com/Saicam)
