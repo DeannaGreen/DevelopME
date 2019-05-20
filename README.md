@@ -1,5 +1,5 @@
 # DevelopME
-DevelopMe is a web application created by developers for developers. It encourages developers to focus on key areas such as their wellbeing, networking skills and commercial awarness by accumulating tools to help them with this in a single place.
+DevelopMe is a web application created by developers for developers. It encourages developers to focus on key areas such as their wellbeing, networking skills and commercial awareness by accumulating tools to help them with this in a single place.
   
 DevelopMe is hosted on Heroku, you can check it out [here.](https://testdevelopme2.herokuapp.com/)
   
@@ -37,3 +37,6 @@ Visit localhost:5000
 - **Gifs:** Take your mind out from the developing world by exploring some quality gifs
 - **Events:** Keep up to date with all the latest coding events 
 - **Questions:** Develop your communcation skills and improve team work by interacting with your peers
+
+## Team DMT
+[Deanna](https://github.com/DeannaGreen), [Akua](https://github.com/AkuaAA) and [Jose](https://github.com/Saicam)
