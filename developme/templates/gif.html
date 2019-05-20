@@ -41,9 +41,9 @@
         .then(response => response.json());
     }
 
-    function appendImage(img) {
+    function appendImage(img, url) {
       let $div = $('<div class="img-wrapper"></div>');
-      $('<div class="inner"></div>').append(img).appendTo($div);
+      $('<a class="inner" target="_blank" href=' + url + '></a>').append(img).appendTo($div);
       $('#thumbs').append($div)
     }
 
@@ -87,7 +87,7 @@
         //     hideLoader()
         //   }
         // };
-        appendImage(img);
+        appendImage(img, gif.url);
       });
 
       await Promise.all(promises);
