@@ -18,17 +18,21 @@
         </div>
     </div>
 </form>
-
+<h3>
+{{ city }}
+</h3>
 <div class="row" style="padding-left: 100px;">
-  <h2>
-  {{ city }}
-</h2>
+
 {% for event in event_list %}
 <div class="col-sm-6">
   <div class="card" style="width: 25rem;">
     <div class="card-body">
       <h5 class="card-title">{{ event["name"] }}</h5>
       <p class="card-text">{{ event["local_date"] }} at {{ event["local_time"] }}</p>
+      {% if "photo" in event: %}
+        <img src="{{ event["photo"] }}" class="card-img-top" alt="...">
+      {% endif %}
+      <p class="card-text">{{ (event["plain_text_description"])[0:300] }}...</p>
       <a href="{{ event["link"] }}"" class="btn btn-dark">To this event</a>
     </div>
   </div>

@@ -29,17 +29,31 @@ def list():
             event_list = []
             city_name = ""
         else:
-            city = city_data.json()[0]
-            city_name = city["name_string"]
-            df = requests.get("https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public&lon="+str(city["lon"])+"&topic_category=34&page=20&radius=50&lat="+str(city["lat"])+"&order=best&key="+meetup_key)
+            cities = city_data.json()
+            choosen_city = None
+            for city in cities:
+                print(city)
+                if city["country"] == 'gb':
+                    choosen_city = city
+                    break
+            if choosen_city is None:
+                choosen_city = cities[0]
+            print(choosen_city)
+            city_name = choosen_city["name_string"]
+            df = requests.get("https://api.meetup.com/find/upcoming_events?allMeetups=false&sign=true&photo-host=public&lon="+str(choosen_city["lon"])+"&topic_category=34&page=20&radius=50&lat="+str(choosen_city["lat"])+"&order=best&fields=plain_text_description,featured_photo,group_key_photo&key="+meetup_key)
             data = df.json()
             event_list = data["events"]
 
-    # for event in data["events"]:
-    #     print("-----------")
-    #     print(event["name"])
-    #     print(event["local_date"])
-    #     print(event["local_time"])
+        for event in data["events"]:
+            if "featured_photo" in event:
+                event["photo"] = event["featured_photo"]["photo_link"]
+            else:
+                if "key_photo" in event["group"]:
+                    event["photo"] = event["group"]["key_photo"]["photo_link"]
+            if "plain_text_description" not in event:
+                event["plain_text_description"] = "No description provided."
+
+
 
     return render_template('events.html', event_list=event_list, city=city_name)
 
