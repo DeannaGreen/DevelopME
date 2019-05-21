@@ -3,6 +3,7 @@
 
 {% block content %}
 <h1>Events</h1>
+<p>Search for tech events near you</p>
   {% with messages = get_flashed_messages() %}
     {% if messages %}
       <div class="notification is-danger">
@@ -33,7 +34,7 @@
         <img src="{{ event["photo"] }}" class="card-img-top" alt="...">
       {% endif %}
       <p class="card-text">{{ (event["plain_text_description"])[0:300] }}...</p>
-      <a href="{{ event["link"] }}"" class="btn btn-dark">To this event</a>
+      <a href="{{ event["link"] }}"" class="btn btn-dark">More Info</a>
     </div>
   </div>
 </div>
