@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+<h1>Meditation Timer</h1>
 <div class="bs-example">
     <!-- Button HTML (to Trigger Modal) -->
     <a href="#myModal" role="button" class="btn btn-lg btn-primary" data-toggle="modal">Help</a>
@@ -32,7 +33,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="timer">
       <div class="clock"><span contenteditable="true" id="min">00</span><span>:</span><span contenteditable="true" id="sec">00</span>
@@ -48,4 +48,10 @@
   </div>
   <audio id="ado" src="./static/serious-strike.mp3" controls="true"></audio>
   <audio id="adu" src="./static/FastNap10.mp3" controls="true"></audio>
+  <!-- <script>
+    jQuery.noConflict();
+    jQuery(function() {
+      jQuery('#myModal').modal({ show: true });
+    });
+  </script> -->
   {% endblock %}

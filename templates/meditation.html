@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% set active_page = "meditation" %}
+
+{% block tag %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple Pomo Timer">
+  <link rel="stylesheet" type="text/css" href="./static/timer.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="timer">
+      <div class="clock"><span contenteditable="true" id="min">00</span><span>:</span><span contenteditable="true" id="sec">00</span>
+        <div class="indicators">Min&nbsp;&nbsp;:&nbsp;&nbsp;Sec</div>
+      </div>
+
+    </div>
+    <div class="controls">
+      <div class='stBtn'>Start</div>
+      <div class='refresh'>Reset</div>
+      <div class='guidBtn'>Guided</div>
+    </div>
+  </div>
+  <audio id="ado" src="./static/serious-strike.mp3" controls="true"></audio>
+  <audio id="adu" src="./static/FastNap10.mp3" controls="true"></audio>
+  {% endblock %}

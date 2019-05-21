@@ -183,11 +183,11 @@ $(document).ready(function() {
                                   <li class="{{ 'is-active' if active_page == "index" else '' }}">
                                     <a href="{{ url_for('main.index') }}" class="navbar-item">Home</a>
                                   </li>
-                                  <li class="{{ 'is-active' if active_page == "profile" else '' }}">
-                                    <a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a>
-                                  </li>
                                   <li class="{{ 'is-active' if active_page == "newsfeed" else '' }}">
                                     <a href="{{ url_for('newsfeed.tweets') }}" class="navbar-item">Newsfeed</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "events" else '' }}">
+                                    <a href="{{ url_for('events.list') }}" class="navbar-item">Events</a>
                                   </li>
                                   <li class="{{ 'is-active' if active_page == "meditation" else '' }}">
                                     <a href="{{ url_for('meditation.timer') }}" class="navbar-item">Meditation</a>
@@ -195,11 +195,11 @@ $(document).ready(function() {
                                   <li class="{{ 'is-active' if active_page == "gifs" else '' }}">
                                     <a href="{{ url_for('main.giphy') }}" class="navbar-item">Gifs</a>
                                   </li>
-                                  <li class="{{ 'is-active' if active_page == "events" else '' }}">
-                                    <a href="{{ url_for('events.list') }}" class="navbar-item">Events</a>
-                                  </li>
                                   <li class="{{ 'is-active' if active_page == "questions" else '' }}">
-                                    <a href="{{ url_for('main.questions') }}" class="navbar-item">Questions</a>
+                                    <a href="{{ url_for('main.questions') }}" class="navbar-item">Soft Skills</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "profile" else '' }}">
+                                    <a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a>
                                   </li>
                                   {% endif %}
                                   {% if not current_user.is_authenticated %}

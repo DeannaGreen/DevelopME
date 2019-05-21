@@ -10,21 +10,28 @@
   Newsfeed
 </h1>
 <h2 class="subtitle">
-  Tweets about #technology
+  Tweets about #coding
 </h2>
+
+<div class="row" style="padding-left: 100px;">
+{% for status in statuses %}
+<!-- <div class="col-sm-6"> -->
+<div>
+  <div class="card" style="width: 20rem;">
+    <div class="card-body">
+      <img class="rounded-circle account-img" src="{{ status.user["profile_image_url"] }}">
+      <p class="card-text">@{{ status.user["screen_name"] }}</p>
+      <p class="card-text">{{ status["created_at"] }}</p>
+      <h5 class="card-title">{{ status["text"] }}</h5>
+    </div>
+  </div>
+</div>
+{%endfor%}
+</div>
+
 <!-- <p>{{statuses}}</p> -->
 
 <div id="flockler_container"></div>
-<script type="text/javascript">
-var _flockler = _flockler || [];
-_flockler.push({
-  count: 20,
-  refresh: 0,
-  site: 7667,
-  style: 'wall_v1'
-});
-(function(d){var f = d.createElement('script');f.async=1;f.src='https://embed-cdn.flockler.com/embed-v2.js';s=d.getElementsByTagName('script')[0];s.parentNode.insertBefore(f,s);})(document);
-</script>
 
 
 {% endblock %}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% block tag %}
+    <!-- <meta http-equiv="refresh" content="5"/> -->
+    {% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevelopeME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script>
+(function() {
+$(document).ready(function() {
+  console.log("hello")
+  $('.stBtn').click(function() {
+    console.log("hello")
+    var btn = $('.stBtn');
+    var minutes = parseInt($('#min').html());
+    var seconds = parseInt($('#sec').html());
+    if (minutes + seconds === 0) {
+      btn.html('Start');
+      btn.removeClass('red');
+      alert('Please set the timer');
+      return;
+    }
+    if (isNaN(minutes)) {
+      $('#min').html('00');
+      minutes = 0;
+    }
+    if (minutes > 59) {
+      alert("Can't be used for more than 59 mins");
+      $('#min').html('00');
+      minutes = 0;
+      return;
+    }
+    if (isNaN(seconds)) {
+      $('#sec').html('00');
+      seconds = 1;
+      retrun;
+    }
+    var t = (minutes * 60) + (seconds);
+    function countdownTimer(t) {
+      var secLeft = Math.floor(t % 60);
+      var minLeft = Math.floor((t / 60) % 60);
+      var dispSeconds = '0' + secLeft;
+      var dispMinutes = '0' + minLeft;
+      $('#min').html(dispMinutes.slice(-2));
+      $('#sec').html(dispSeconds.slice(-2));
+    }
+  function reStart() {
+      btn.html('Start');
+        btn.removeClass('red');
+      }
+    function updateTimer() {
+      t--;
+      countdownTimer(t);
+      if (t <= 0) {
+        clearInterval(interval);
+        $('#ado').get(0).play();
+        reStart();
+      }
+    }
+    if (btn.html() == "Stop") {
+      clearInterval(interval);
+      reStart();
+    } else {
+      window.interval = setInterval(updateTimer, 1000);
+      btn.html('Stop');
+      btn.addClass('red');
+    }
+  });
+  $('.refresh').click(function() {
+    clearInterval(interval);
+    $('#min').html('00');
+    $('#sec').html('00');
+    $('.stBtn').html('Start');
+    $('.stBtn').removeClass('red');
+  });
+});
+})();
+</script>
+<script>
+(function() {
+$(document).ready(function() {
+  console.log("hello")
+  $('.guidBtn').click(function() {
+    console.log("hello")
+    var btn = $('.guidBtn');
+    $('#adu').get(0).play();
+    var minutes = 10;
+    var seconds = 01;
+    if (minutes + seconds === 0) {
+      btn.html('Guide');
+      btn.removeClass('red');
+      alert('Please set the timer');
+      return;
+    }
+    if (isNaN(minutes)) {
+      $('#min').html('00');
+      minutes = 0;
+    }
+    if (minutes > 59) {
+      alert("Can't be used for more than 59 mins");
+      $('#min').html('00');
+      minutes = 0;
+      return;
+    }
+    if (isNaN(seconds)) {
+      $('#sec').html('00');
+      seconds = 1;
+      retrun;
+    }
+    var t = (minutes * 60) + (seconds);
+    function countdownTimer(t) {
+      var secLeft = Math.floor(t % 60);
+      var minLeft = Math.floor((t / 60) % 60);
+      var dispSeconds = '0' + secLeft;
+      var dispMinutes = '0' + minLeft;
+      $('#min').html(dispMinutes.slice(-2));
+      $('#sec').html(dispSeconds.slice(-2));
+    }
+  function reStart() {
+      btn.html('Guide');
+        btn.removeClass('red');
+        $('#adu').get(0).pause();
+      }
+    function updateTimer() {
+      t--;
+      countdownTimer(t);
+      if (t <= 0) {
+        clearInterval(interval);
+        $('#ado').get(0).play();
+        reStart();
+      }
+    }
+    if (btn.html() == "Stop") {
+      clearInterval(interval);
+      reStart();
+    } else {
+      window.interval = setInterval(updateTimer, 1000);
+      btn.html('Stop');
+      btn.addClass('red');
+    }
+  });
+  $('.refresh').click(function() {
+    clearInterval(interval);
+    $('#min').html('00');
+    $('#sec').html('00');
+    $('.guidBtn').html('Guide');
+    $('.guidBtn').removeClass('red');
+  });
+});
+})();
+</script>
+<body>
+    <section class="hero is-fullheight">
+
+        <div class="hero-head">
+          <nav class="navbar">
+              <div class="container">
+                  <div class="navbar-brand">
+                      <a href="{{ url_for('main.index') }}" class="navbar-item">
+                          DevelopeME
+                      </a>
+                      <span class="navbar-burger burger" data-target="navbarMenu">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </span>
+                  </div>
+                  <div id="navbarMenu" class="navbar-menu">
+                      <div class="navbar-end">
+                          <div class="tabs is-right">
+                              <ul>
+                                  {% if current_user.is_authenticated %}
+                                  <li class="{{ 'is-active' if active_page == "index" else '' }}">
+                                    <a href="{{ url_for('main.index') }}" class="navbar-item">Home</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "profile" else '' }}">
+                                    <a href="{{ url_for('main.profile') }}" class="navbar-item">Profile</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "newsfeed" else '' }}">
+                                    <a href="{{ url_for('newsfeed.tweets') }}" class="navbar-item">Newsfeed</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "meditation" else '' }}">
+                                    <a href="{{ url_for('meditation.timer') }}" class="navbar-item">Meditation</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "gifs" else '' }}">
+                                    <a href="{{ url_for('main.giphy') }}" class="navbar-item">Gifs</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "questions" else '' }}">
+                                    <a href="{{ url_for('main.questions') }}" class="navbar-item">Questions</a>
+                                  </li>
+                                  {% endif %}
+                                  {% if not current_user.is_authenticated %}
+                                  <li class="{{ 'is-active' if active_page == "login" else '' }}">
+                                    <a href="{{ url_for('auth.login') }}" class="navbar-item">Login</a>
+                                  </li>
+                                  <li class="{{ 'is-active' if active_page == "signup" else '' }}">
+                                    <a href="{{ url_for('auth.signup') }}" class="navbar-item">Sign Up</a>
+                                  </li>
+                                  {% endif %}
+                                  {% if current_user.is_authenticated %}
+                                  <li class="{{ 'is-active' if active_page == "logout" else '' }}">
+                                    <a href="{{ url_for('auth.logout') }}" class="navbar-item">Logout</a>
+                                  </li>
+                                  {% endif %}
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </section>
+    <script>
+    (function() {
+        var burger = document.querySelector('.burger');
+        var menu = document.querySelector('#'+burger.dataset.target);
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    })();
+    </script>
+</body>
+
+</html>

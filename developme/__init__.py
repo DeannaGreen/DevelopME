@@ -7,6 +7,8 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 
 def create_app():
+    # db = SQLAlchemy()
+
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'

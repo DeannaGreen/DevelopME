@@ -3,7 +3,7 @@ import json
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from . import db
-from . import config
+import os
 
 from tweepy import Stream
 from tweepy import OAuthHandler
@@ -16,10 +16,10 @@ newsfeed = Blueprint('newsfeed', __name__)
 @login_required
 def tweets():
 
-    OAUTH_TOKEN = config.CODE_CONFIG['OAUTH_TOKEN']
-    OAUTH_TOKEN_SECRET = config.CODE_CONFIG['OAUTH_TOKEN_SECRET']
-    CONSUMER_KEY = config.CODE_CONFIG['CONSUMER_KEY']
-    CONSUMER_SECRET = config.CODE_CONFIG['CONSUMER_SECRET']
+    OAUTH_TOKEN = os.environ.get('OAUTH_TOKEN', None)
+    OAUTH_TOKEN_SECRET = os.environ.get('OAUTH_TOKEN_SECRET', None)
+    CONSUMER_KEY = os.environ.get('CONSUMER_KEY', None)
+    CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET', None)
 
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET,
                                CONSUMER_KEY, CONSUMER_SECRET)
@@ -72,7 +72,7 @@ def tweets():
               for t in status_texts
                   for w in t.split() ]
 
-
+    # print(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     # Explore the first 5 items for each...
 
     # print(json.dumps(status_texts[0:20], indent=1))
@@ -80,29 +80,3 @@ def tweets():
     # print(json.dumps(hashtags[0:5], indent=1))
     # print(json.dumps(words[0:5], indent=1))
     return render_template('twitter.html', status_texts=status_texts, screen_names=screen_names, statuses=statuses)
-
-
-# @newsfeed.route('/newsfeed2')
-# def tweets2():
-#     ckey="fL3xczernPD5heWfqvieb8cPK"
-#     csecret="Y8ctl29Lm5byRVPABOJE22gsfbSxbIAf6XANWfMKkkg1Zl0Yzw"
-#     atoken="997779978-r542hm7EbxICcvZiSydwbqLfUj5SAwzTm70UjKqx"
-#     asecret="v2ESQnOdLOndvh2bizZvVl9iaDp7oOz6kSYrgdjF7IIAx"
-#
-#     auth = OAuthHandler(ckey, csecret)
-#     auth.set_access_token(atoken, asecret)
-#
-#     twitterStream = Stream(auth, listener())
-#     twitterStream.filter(track=["coding"])
-#
-#     return "done"
-#
-#
-# class listener(StreamListener):
-#
-#     def on_data(self, data):
-#         print(data)
-#         return(True)
-#
-#     def on_error(self, status):
-#         print(status)
