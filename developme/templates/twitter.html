@@ -22,13 +22,28 @@
       <img class="rounded-circle account-img" src="{{ status.user["profile_image_url"] }}">
       <p class="card-text">@{{ status.user["screen_name"] }}</p>
       <p class="card-text">{{ (status["created_at"])[0:19] }}</p>
-      <!-- <p class="card-text">{{ formatedDate }}</p> -->
       <h5 class="card-title">{{ status["text"] }}</h5>
     </div>
   </div>
 </div>
 {%endfor%}
 </div>
+
+<script>
+  (function (win,doc) {
+    'use strict';
+    var siteURL = 'http://cdevroe.com',
+        entries = doc.querySelectorAll('div.card-body > p'),
+        i;
+
+    if ( entries.length > 0 ) {
+      for (i = 0; i < entries.length; i = i + 1) {
+        entries[i].innerHTML = entries[i].innerHTML.replace(/#(\S+)/g,'<a href="'+siteURL+'search/$1" title="Find more posts tagged with #$1">#$1</a>');
+      }
+    }
+
+  }(this, this.document));
+</script>
 
 <!-- <p>{{statuses}}</p> -->
 

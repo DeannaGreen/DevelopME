@@ -10,7 +10,6 @@ from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 
-
 newsfeed = Blueprint('newsfeed', __name__)
 
 @newsfeed.route('/newsfeed')
