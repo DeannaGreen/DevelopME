@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     {% block tag %}
-    <!-- <meta http-equiv="refresh" content="5"/> -->
     {% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -99,7 +98,7 @@ $(document).ready(function() {
     var minutes = 10;
     var seconds = 01;
     if (minutes + seconds === 0) {
-      btn.html('Guide');
+      btn.html('Guided');
       btn.removeClass('red');
       alert('Please set the timer');
       return;
@@ -129,7 +128,7 @@ $(document).ready(function() {
       $('#sec').html(dispSeconds.slice(-2));
     }
   function reStart() {
-      btn.html('Guide');
+      btn.html('Guided');
         btn.removeClass('red');
         $('#adu').get(0).pause();
       }
@@ -155,7 +154,7 @@ $(document).ready(function() {
     clearInterval(interval);
     $('#min').html('00');
     $('#sec').html('00');
-    $('.guidBtn').html('Guide');
+    $('.guidBtn').html('Guided');
     $('.guidBtn').removeClass('red');
   });
 });
