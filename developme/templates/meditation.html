@@ -57,6 +57,8 @@
     <br>
     <h6>Click arrow for meditation timer</h6>
     <br>
+    <br>
+    <br>
     <a class="ct-btn-scroll ct-js-btn-scroll" href="#section2"><img alt="Arrow Down Icon" src="./static/down-arrow.png"></a>
 </section>
 <br>
@@ -113,9 +115,15 @@
     });
   });
 </script>
-<br>
-<br>
+<script>
+  $("a[href='#top']").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
+</script>
 <h6>Top of the page</h6>
 <br>
-<a class="ct-btn-scroll ct-js-btn-scroll" href="#top"><img alt="Arrow Down Icon" src="./static/up-arrow.png"></a>
+<br>
+<br>
+<a class="ct-btn-scroll ct-js-btn-scroll" href='#top'><img alt="Arrow Down Icon" src="./static/up-arrow.png"></a>
 {% endblock %}
