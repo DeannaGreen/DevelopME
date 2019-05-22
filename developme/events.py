@@ -40,7 +40,7 @@ def list():
                 choosen_city = cities[0]
             print(choosen_city)
             city_name = choosen_city["name_string"]
-            df = requests.get("https://api.meetup.com/find/upcoming_events?allMeetups=false&sign=true&photo-host=public&lon="+str(choosen_city["lon"])+"&topic_category=34&page=20&radius=50&lat="+str(choosen_city["lat"])+"&order=best&fields=plain_text_description,featured_photo,group_key_photo&key="+meetup_key)
+            df = requests.get("https://api.meetup.com/find/upcoming_events?allMeetups=false&sign=true&photo-host=public&lon="+str(choosen_city["lon"])+"&topic_category=292&page=20&radius=50&lat="+str(choosen_city["lat"])+"&order=best&fields=plain_text_description,featured_photo,group_key_photo&key="+meetup_key)
             data = df.json()
             event_list = data["events"]
 
